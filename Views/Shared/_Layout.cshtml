@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Citrus_0974's Website'</title>
+    <link rel="stylesheet" href="~/css/styles2.css" />
+    <link rel="stylesheet" href="~/css/styles2-2.css" />
+</head>
+<body>
+    <nav class="navbar flex spacebetween aligncenter">
+        <div class="nav-left flex aligncenter">
+            <p><img src="/img/logo2.png"></p>
+            <div class="logotext">Citrus_0974</div>
+        </div>
+        <button class="menu-toggle">☰</button>
+        <div class="nav-right flex spacebetween aligncenter">
+            <p class="contact"><a asp-action="Index">Главная</a></p>
+            <p class="contact"><a asp-action="News" >Новости</a></p>
+            <p class="contact"><a href="#">Видео</a></p>
+            <p class="contact"><a href="photo1.html">Фотографирование</a></p>
+            <!--            <p class="contact" id="username">User</p>-->
+            <p class="contact" id="theme">🌞</p>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <br>
+    <footer>
+        <div class="flex aligncenter spacebetween">
+            <div class="flex aligncenter">
+                <p class="footertext"><a asp-action="Index">Главная</a></p>
+                <p class="footertext"><a asp-action="News">Новости</a></p>
+                <p class="footertext"><a href="#">Видео</a></p>
+                <p class="footertext"><a href="#">Фотографирование</a></p>
+                <p class="footertext"><a href="https://www.youtube.com/channel/UC_oXvgsZcKrqmAlmUa2B7PQ">Основной канал</a></p>
+                <p class="footertext"><a href="https://www.youtube.com/channel/UCcIMuQQB3ISISFsM4pfgbJw">Второй канал</a></p>
+                <p class="footertext"><a href="https://t.me/citrus_photography">Telegram-канал</a></p>
+            </div>
+            <div class="lasttext">
+                <p class="footertext">© Citrus_0974, 2025</p>
+            </div>
+        </div>
+    </footer>
+    <script src="~/js/main.js"></script>
+</body>
+</html>

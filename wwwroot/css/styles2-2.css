@@ -1,0 +1,153 @@
+Сплеш-скрин и диалоговое окно 
+.splashscreen{
+    position fixed;
+    width 100%;
+    height 100%;
+    background-color rgba(14, 28, 110, 0.5);
+    z-index 1000;
+    display flex;
+    justify-content center;
+    align-items center;
+    top 0;
+    left 0;
+}
+
+.invisible{
+    display none;
+}
+
+.dialog{
+    background-color var(--panel-color);
+    margin 20px auto 50px;
+    padding 30px;
+	border 5px solid #131A44;
+    border-radius 15px;
+    width 500px;
+}
+
+.close-dialog{
+    display flex;
+    justify-self flex-end;
+    font-size 28px;
+    color var(--black-text);
+    padding 5px;
+    margin 0;
+    background-color var(--button-color);
+    border none;
+    border-radius 10px;
+    font-family 'chocolate', sans-serif;
+    font-size 12pt;
+
+    right 15px;
+    top 15px;
+
+    text-align center;
+    cursor pointer;
+}
+
+.save-name{
+    display flex;
+    justify-self center;
+    font-size 28px;
+    color var(--black-text);
+    padding 5px;
+    margin 0;
+    background-color var(--button-color);
+    border none;
+    border-radius 10px;
+    font-family 'chocolate', sans-serif;
+    font-size 12pt;
+
+    right 15px;
+    top 15px;
+
+    text-align center;
+    cursor pointer;
+}
+
+.goto-test{
+    display flex;
+    justify-self left;
+    font-size 28px;
+    color var(--black-text);
+    padding 5px;
+    margin 0;
+    background-color var(--button-color);
+    border none;
+    border-radius 10px;
+    font-family 'chocolate', sans-serif;
+    font-size 12pt;
+
+    right 15px;
+    top 15px;
+
+    text-align center;
+    cursor pointer;
+}
+
+ Вторая страница 
+.test-cont{
+    display flex;
+    margin 0 auto;
+    flex-direction column;
+    align-items center;
+    max-width 1600px;
+}
+
+.question-container{
+    width 80%;
+    background-color var(--panel-color);
+    border-radius 15px;
+    border none;
+    padding 15px 15px 15px 15px;
+    margin-bottom 15px;
+}
+
+h3 {
+    color var(--black-text);
+    font-family tektur, Courier;
+}
+
+h2 {
+    color var(--black-text);
+    font-family tektur, Courier;
+}
+
+label {
+    justify-self left;
+    font-size 12pt;
+    color var(--black-text);
+}
+
+input[type=radio] {
+    align-self center;
+    justify-self left;
+    display inline-block;
+    width 20px;
+    margin-left 20px;
+}
+
+.options {
+    margin-top 15px;
+    margin-bottom 15px;
+}
+
+.submit-answer{
+    display flex;
+    justify-self flex-start;
+    font-size 28px;
+    color var(--black-text);
+    padding 5px;
+    margin 0;
+    background-color var(--button-color);
+    border none;
+    border-radius 10px;
+    font-family 'chocolate', sans-serif;
+    font-size 12pt;
+
+    right 15px;
+    top 15px;
+
+    text-align center;
+    cursor pointer;
+}
