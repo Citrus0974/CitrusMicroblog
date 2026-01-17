@@ -1,10 +1,14 @@
 using CitrusMicroblog.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews(options => options.EnableEndpointRouting = false);
-builder.Services.AddTransient<INewsRepository, FakeNewsRepository>();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration["Data:CitrusMicroBlog:ConnectionString"]));
+builder.Services.AddTransient<INewsRepository, EFNewsRepository>();
+builder.Services.AddTransient<IFormMessageRepository, EFFormMessageRepository>();
 
 var app = builder.Build();
 
@@ -27,5 +31,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+SeedData.EnsurePopulated(app);
 
 app.Run();

@@ -2,7 +2,7 @@
 {
     public class NewsTopic
     {
-        public int TopicID { get; set; }
+        public int NewsTopicID { get; set; }
         public string? TopicText { get; set; }
         public string? TopicButtonText { get; set; } 
         public string? ButtonLink { get; set; }

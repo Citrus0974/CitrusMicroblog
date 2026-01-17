@@ -1,6 +1,8 @@
 ﻿namespace CitrusMicroblog.Models
 {
-    public class IFormMessageRepository
+    public interface IFormMessageRepository
     {
+        IEnumerable<FormMessage> messages { get; }
+        void SaveMessage(FormMessage message);
     }
 }
