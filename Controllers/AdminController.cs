@@ -33,9 +33,9 @@ namespace CitrusMicroblog.Controllers
         }
 
         [HttpGet]
-        public ViewResult Edit(int NewsTopicID)
+        public ViewResult Edit(int topic)
         {
-            return View(_repository1.NewsTopics.FirstOrDefault(t => t.NewsTopicID == NewsTopicID));
+            return View(_repository1.NewsTopics.FirstOrDefault(t => t.NewsTopicID == topic));
         }
 
         [HttpPost]
