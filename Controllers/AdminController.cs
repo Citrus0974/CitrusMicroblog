@@ -50,6 +50,17 @@ namespace CitrusMicroblog.Controllers
             return View(topic);
         }
 
+        [HttpPost]
+        public IActionResult Delete(int NewsTopicID)
+        {
+            NewsTopic deleted = _repository1.DeleteTopic(NewsTopicID);
+            if(deleted != null)
+            {
+                TempData["message"] = "deleted";
+            }
+            return RedirectToAction("NewsList");
+        }
+
         [HttpGet]
         public ViewResult NewNewsTopic()
         {
