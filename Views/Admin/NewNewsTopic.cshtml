@@ -1,5 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model NewsTopicEditViewModel
 @{
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="test-cont">
+        <h1 class="menu">Добавление новой новости</h1>
+        <div class="question-container">
+            <form asp-action="NewNewsTopic" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="All"></div>
+                <div class="form-check">
+                    <label asp-for="TopicText" class=""></label>
+                    <input asp-for="TopicText"/>
+                </div>
+                <div class="form-check">
+                    <label asp-for="ButtonLink"></label>
+                    <input asp-for="ButtonLink" class="form-control" />
+                </div>
+                <div class="form-check">
+                    <label asp-for="TopicButtonText"></label>
+                    <input asp-for="TopicButtonText" class="form-control" />
+                </div>
+                <div>
+                    <input type="file" asp-for="ImageFile" />
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <a asp-action="Index" class="btn btn-close" style="background-color: aqua"> <br />   Cancel</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
 }

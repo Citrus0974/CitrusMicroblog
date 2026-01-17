@@ -1,5 +1,6 @@
 using CitrusMicroblog.Models;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -17,6 +18,10 @@ builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(
         new DirectoryInfo(@"C:\aspnetcore-keys"))
     .SetApplicationName("SportsStore");
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 5 * 1024 * 1024;
+});
 
 var app = builder.Build();
 
