@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Index";
+﻿@model HomeIndexViewModel
+
+@{
 }
 
 
@@ -27,27 +28,10 @@
     <div class="newspanel">
         <h1 class="menu" id="news"><a asp-action="News">Новости</a></h1>
         <div class="flex spacebetween aligncenter adoptnews">
-            <div class="news">
-                <img class="newsimg" src="img/pvzrpl_capsule_616x353.jpg">
-                <p class="article">
-                    Plants vs Zombies: Replanted - эти полтора не самых желанных видео побили все рекорды по просмотрам. Несмотря на это, я хочу продолжать работать над техническими видео, ну или по крайней мере над видео по PvZ: BfN и PvZ: GW2. Так что стоит посмотреть плейлист по BfN!
-                </p>
-                <p class="contact button"><a href="#" class="button">Плейлист</a></p>
-            </div>
-            <div class="news">
-                <img class="newsimg" src="img/2025-05-17 (13).png">
-                <p class="article">
-                    Тестовые публикации фоток с помощью страниц, автоматически сгенерированных лайтрумом, находятся в разделе "фотографирование". Все же полноразмерные версии попадают в виде исходных jpg-файлов в отдельный Telegram-канал.
-                </p>
-                <p class="contact button"><a href="#" class="button">Фото ТГК</a></p>
-            </div>
-            <div class="news">
-                <img class="newsimg" src="img/photo_2025-07-01_22-17-31.jpg">
-                <p class="article">
-                    Пока что на этом IP/DNS почти ничего не хостится, но это только пока. Надеюсь, я дождусь того дня, когда серверная часть кастомных серверов GW2 станет общедоступной. Ну а пока что время от времени на порту 666 работает сервер Minecraft, подробнее о котором можно узнать ниже.
-                </p>
-                <p class="contact button"><a href="#" class="button">MC Server</a></p>
-            </div>
+            @foreach (NewsTopic topic in @Model.topics)
+            {
+                @Html.Partial("NewsTopicPartial", topic)
+            }
         </div>
     </div>
 

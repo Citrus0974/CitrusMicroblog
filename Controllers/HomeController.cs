@@ -1,21 +1,27 @@
 using System.Diagnostics;
 using CitrusMicroblog.Models;
+using CitrusMicroblog.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CitrusMicroblog.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly INewsRepository _repository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(INewsRepository repository)
         {
-            _logger = logger;
+            _repository = repository;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(new HomeIndexViewModel
+            {
+                message = new FormMessage { },
+                topics = _repository.NewsTopics.TakeLast(3)
+            });
         }
 
         public IActionResult News()

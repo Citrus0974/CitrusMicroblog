@@ -1,7 +1,10 @@
+using CitrusMicroblog.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options => options.EnableEndpointRouting = false);
+builder.Services.AddTransient<INewsRepository, FakeNewsRepository>();
 
 var app = builder.Build();
 
@@ -15,6 +18,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseStatusCodePages();
 
 app.UseRouting();
 
