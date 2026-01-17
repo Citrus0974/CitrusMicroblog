@@ -24,6 +24,16 @@ namespace CitrusMicroblog.Controllers
             });
         }
 
+        [HttpPost]
+        public IActionResult Index(HomeIndexViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View("Index");
+        }
+
         public IActionResult News()
         {
             return View(_repository.NewsTopics.Reverse());

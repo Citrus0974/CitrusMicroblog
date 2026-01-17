@@ -15,5 +15,10 @@ namespace CitrusMicroblog.Controllers
         {
             return View(_repository.messages);
         }
+
+        public ViewResult Index()
+        {
+            return View();
+        }
     }
 }
