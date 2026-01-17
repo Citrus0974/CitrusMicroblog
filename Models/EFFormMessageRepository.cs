@@ -23,7 +23,7 @@ namespace CitrusMicroblog.Models
             {
                 DbContext.messages.Add(message);
                 DbContext.SaveChanges();
-            }
+            } 
         }
     }
 }

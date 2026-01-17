@@ -8,10 +8,12 @@ namespace CitrusMicroblog.Controllers
     public class HomeController : Controller
     {
         private readonly INewsRepository _repository;
+        private readonly IFormMessageRepository _repository2;
 
-        public HomeController(INewsRepository repository)
+        public HomeController(INewsRepository repository, IFormMessageRepository repo2)
         {
             _repository = repository;
+            _repository2 = repo2;
         }
 
         [HttpGet]
@@ -27,11 +29,14 @@ namespace CitrusMicroblog.Controllers
         [HttpPost]
         public IActionResult Index(HomeIndexViewModel model)
         {
+            //TryValidateModel(model);
             if (ModelState.IsValid)
             {
-
+                FormMessage msg = model.message;
+                _repository2.SaveMessage(msg);
+                TempData["message"] = "Сообщение отправлено!";
             }
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         public IActionResult News()
