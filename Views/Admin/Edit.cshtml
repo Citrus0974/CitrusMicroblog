@@ -1,0 +1,38 @@
+﻿@model NewsTopic
+@{
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="test-cont">
+        <h1 class="menu">Редактирование новости</h1>
+        <div class="question-container">
+            <form asp-action="Edit" method="post">
+                <div asp-validation-summary="All"></div>
+                <input type="hidden" asp-for="NewsTopicID" />
+                <div class="form-check">
+                    <label asp-for="TopicText" class=""></label>
+                    <input asp-for="TopicText"" />
+                </div>
+                <div class="form-check">
+                    <label asp-for="ImageName"></label>
+                    <textarea asp-for="ImageName" class="form-control"></textarea>
+                </div>
+                <div class="form-check">
+                    <label asp-for="ButtonLink"></label>
+                    <input asp-for="ButtonLink" class="form-control" />
+                </div>
+                <div class="form-check">
+                    <label asp-for="TopicButtonText"></label>
+                    <input asp-for="TopicButtonText" class="form-control" />
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <a asp-action="Index" class="btn btn-close" style="background-color: aqua"> <br />   Cancel</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+}

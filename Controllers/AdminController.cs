@@ -27,5 +27,11 @@ namespace CitrusMicroblog.Controllers
         {
             return View(_repository1.NewsTopics.Reverse());
         }
+
+
+        public ViewResult Edit(int productId)
+        {
+            return View(_repository1.NewsTopics.FirstOrDefault(t => t.NewsTopicID == productId));
+        }
     }
 }
