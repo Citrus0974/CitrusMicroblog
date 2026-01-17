@@ -1,10 +1,12 @@
 ﻿using CitrusMicroblog.Models;
 using CitrusMicroblog.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CitrusMicroblog.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IFormMessageRepository _repository;

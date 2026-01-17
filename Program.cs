@@ -1,6 +1,7 @@
 using CitrusMicroblog.Models;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews(options => options.EnableEndpointRouting = false);
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration["Data:CitrusMicroBlog:ConnectionString"]));
+builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(builder.Configuration["Data:CitrusIdentity:ConnectionString"]));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
 builder.Services.AddTransient<INewsRepository, EFNewsRepository>();
 builder.Services.AddTransient<IFormMessageRepository, EFFormMessageRepository>();
 
