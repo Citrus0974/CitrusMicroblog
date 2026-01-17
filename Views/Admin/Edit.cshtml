@@ -10,22 +10,22 @@
         <div class="question-container">
             <form asp-action="Edit" method="post">
                 <div asp-validation-summary="All"></div>
-                <input type="hidden" asp-for="NewsTopicID" />
+                <input type="hidden" asp-for="NewsTopicID" value="@Model.NewsTopicID" />
                 <div class="form-check">
                     <label asp-for="TopicText" class=""></label>
-                    <input asp-for="TopicText"" />
+                    <input asp-for="ImageName" value="@(Model.ImageName ?? "")" />
                 </div>
                 <div class="form-check">
-                    <label asp-for="ImageName"></label>
-                    <textarea asp-for="ImageName" class="form-control"></textarea>
+                    <label asp-for="TopicText"></label>
+                    <textarea asp-for="TopicText" class="form-control">@(Model.TopicText ?? "")</textarea>
                 </div>
                 <div class="form-check">
                     <label asp-for="ButtonLink"></label>
-                    <input asp-for="ButtonLink" class="form-control" />
+                    <input asp-for="ButtonLink" class="form-control" value="@(Model.ButtonLink ?? "") />
                 </div>
                 <div class="form-check">
                     <label asp-for="TopicButtonText"></label>
-                    <input asp-for="TopicButtonText" class="form-control" />
+                    <input asp-for="TopicButtonText" class="form-control" value="@(Model.TopicButtonText ?? "")" />
                 </div>
                 <div class="text-center">
                     <button class="btn btn-primary" type="submit">Save</button>

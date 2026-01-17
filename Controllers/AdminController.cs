@@ -32,10 +32,22 @@ namespace CitrusMicroblog.Controllers
             return View(_repository1.NewsTopics.Reverse());
         }
 
-
-        public ViewResult Edit(int productId)
+        [HttpGet]
+        public ViewResult Edit(int NewsTopicID)
         {
-            return View(_repository1.NewsTopics.FirstOrDefault(t => t.NewsTopicID == productId));
+            return View(_repository1.NewsTopics.FirstOrDefault(t => t.NewsTopicID == NewsTopicID));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(NewsTopic topic)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository1.SaveTopic(topic);
+                TempData["message"] = "saved";
+                return RedirectToAction("NewsList");
+            }
+            return View(topic);
         }
 
         [HttpGet]
@@ -43,6 +55,7 @@ namespace CitrusMicroblog.Controllers
         {
             return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> NewNewsTopic(NewsTopicEditViewModel model)
