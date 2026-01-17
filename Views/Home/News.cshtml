@@ -1,4 +1,21 @@
-﻿
+﻿@model IEnumerable<NewsTopic>
 @{
-    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="wrapper">
+    <div class="newspanel">
+        <h1 class="menu" id="news"><a asp-action="News">Новости</a></h1>
+        <div class="flex spacebetween aligncenter adoptnews">
+            @foreach (NewsTopic topic in @Model)
+            {
+                @Html.Partial("NewsTopicPartial", topic)
+            }
+        </div>
+    </div>
+    </div>
+
 }

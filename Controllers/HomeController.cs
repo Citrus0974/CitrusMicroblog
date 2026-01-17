@@ -26,7 +26,7 @@ namespace CitrusMicroblog.Controllers
 
         public IActionResult News()
         {
-            return View();
+            return View(_repository.NewsTopics.Reverse());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
