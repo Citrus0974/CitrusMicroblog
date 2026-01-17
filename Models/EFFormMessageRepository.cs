@@ -1,4 +1,4 @@
-﻿
+﻿using System.Linq;
 namespace CitrusMicroblog.Models
 {
     public class EFFormMessageRepository : IFormMessageRepository
@@ -12,7 +12,8 @@ namespace CitrusMicroblog.Models
         {
             get
             {
-                return DbContext.messages.TakeLast(100);
+                return DbContext.messages;
+                //return DbContext.messages.Reverse().Take(100);
             }
         }
 

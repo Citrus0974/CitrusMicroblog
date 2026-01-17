@@ -1,3 +1,21 @@
-﻿
+﻿@model IEnumerable<FormMessage>
 @{
+
 }
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="test-cont">
+    <h1 class="menu">Cообщения с помощью формы</h1>
+    @foreach (FormMessage msg in Model)
+    {
+        <div class="question-container">
+            <h3>@msg.Name</h3>
+            <h3>@msg.Contact</h3>
+            <p class="article">@msg.MessageText</p>
+        </div>
+    }
+</div>

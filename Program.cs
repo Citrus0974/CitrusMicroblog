@@ -1,4 +1,5 @@
 using CitrusMicroblog.Models;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -9,6 +10,13 @@ builder.Services.AddControllersWithViews(options => options.EnableEndpointRoutin
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration["Data:CitrusMicroBlog:ConnectionString"]));
 builder.Services.AddTransient<INewsRepository, EFNewsRepository>();
 builder.Services.AddTransient<IFormMessageRepository, EFFormMessageRepository>();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(
+        new DirectoryInfo(@"C:\aspnetcore-keys"))
+    .SetApplicationName("SportsStore");
 
 var app = builder.Build();
 
@@ -25,7 +33,8 @@ app.UseStaticFiles();
 app.UseStatusCodePages();
 
 app.UseRouting();
-
+app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

@@ -35,7 +35,7 @@
                     });
                 context.SaveChanges();
             }
-            if (context.messages.Any())
+            if (!context.messages.Any())
             {
                 context.messages.Add(new FormMessage { Name = "test", Contact = "test", MessageText  = "test text" });
                 context.SaveChanges();
